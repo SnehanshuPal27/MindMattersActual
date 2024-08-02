@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { BACKEND_URL } from "../../urls";
 import SuggestionBox from "./SuggestionBox";
+import LoadingSpinner from "../LoadingSpinner";
+
 const token = localStorage.getItem("jwtToken");
 const getQuestions = async (topic) => {
   const response = await axios.get(`${BACKEND_URL}test/?topic=${topic}`, {
@@ -273,7 +275,7 @@ function GeneralTest() {
   if (loading) {
     return (
       <QuizContainer>
-        <p>Loading...</p>
+           return <LoadingSpinner />;
       </QuizContainer>
     );
   }

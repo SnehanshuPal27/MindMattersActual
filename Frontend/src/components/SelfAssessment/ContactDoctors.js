@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { BACKEND_URL } from '../../urls';
+import LoadingSpinner from '../LoadingSpinner';
 
 const PageContainer = styled.div`
   padding: 2rem;
@@ -66,7 +67,7 @@ const ContactDoctors = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading doctors...</p>;
+    return <LoadingSpinner />;
   }
 
   if (error) {

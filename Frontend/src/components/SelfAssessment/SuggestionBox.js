@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { BACKEND_URL } from '../../urls';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../LoadingSpinner';
 
 const SuggestionContainer = styled.div`
   background-color: #f9f9f9;
@@ -98,7 +99,7 @@ const SuggestionBox = ({ topic }) => {
   };
 
   if (loading) {
-    return <p>Loading suggestions...</p>;
+    return <LoadingSpinner />;
   }
 
   if (error) {
